@@ -1,64 +1,47 @@
+import os
+os.sys.path.append('..')
 
 import torch
-import models
-import numpy as np
-import torch.nn as nn
+from advGAN import models as models_gan
 import torch.nn.functional as F
-import utils
-import os
-
-
-class Config:
-    batch_size = 64
-    test_batch_size = 1
-    learning_rate = 0.001
-    epochs = 50
-    input_hight = 1
-    input_wide = 256
-    clip_value = 0.01       # lower and upper clip value for disc. weights
-    n_discriminator = 5     # number of training steps for discriminator per iteration
-    sample_interval = 400   # interval between input data samples
-    latent_dim = 100        # the dimensionlity of the generator's first input channel. default 100, can change
-    box_min = -1
-    box_max = 0
-    model_num_labels = 101
+import os,sys
+import  utils as utils_gb
+from sklearn.preprocessing import MinMaxScaler
 
 
 
-models_path = '../model'
+
 
 class advGan_attack:
     def __init__(self,
-                 device,
+                 mode,
                  target_model,
                  model_num_labels,
-                 input_nc,
-                 x_box_min,
-                 x_box_max,
-                 pert_box_min,
-                 pert_box_max):
-        output_nc = input_nc
-        self.device = device
+                 pert_box,
+                 x_box_min=-1,
+                 x_box_max=0,
+                 ):
+
+
+        self.mode = mode
+        self.models_path = '../model/' + self.mode
         self.model_num_labels = model_num_labels
         self.target_model = target_model
-        self.input_nc = input_nc
-        self.output_nc = output_nc
+        self.input_nc = 1
+        self.output_nc = 1
         self.x_box_min,self.x_box_max= x_box_min,x_box_max
-        self.pert_box_min, self.pert_box_max = pert_box_min,pert_box_max
+        self.pert_box_min, self.pert_box_max = -pert_box,pert_box
+        self.device = ('cuda:0' if torch.cuda.is_available() else 'cpu')
+        self.gen_input_nc = self.input_nc
 
-
-        self.gen_input_nc = input_nc
-        # self.generator = Generator().to(device)
-        # self.discriminator = Discriminator().to(device)
-        self.generator = models.Generator(self.gen_input_nc, input_nc).to(device)
-        self.discriminator = models.Discriminator(input_nc).to(device)
-
+        self.generator = models_gan.Generator(self.gen_input_nc, self.input_nc).to(self.device)
+        self.discriminator = models_gan.Discriminator(self.input_nc).to(self.device)
 
         self.optimizer_G = torch.optim.Adam(self.generator.parameters(),lr=0.001)
         self.optimizer_D = torch.optim.Adam(self.discriminator.parameters(),lr=0.001)
 
-        if not os.path.exists(models_path):
-            os.makedirs(models_path)
+        if not os.path.exists(self.models_path):
+            os.makedirs(self.models_path)
 
 
 
@@ -68,11 +51,36 @@ class advGan_attack:
         for i in range(1):
             pert = self.generator(x)
 
-            # add a clipping trick
-            adv_instance = torch.clamp(pert, self.pert_box_min, self.pert_box_max) + x     # clamp (input,min,max)
 
-            # remain only incoming packets, keep all packets negative as incoming only
-            adv_instance = torch.clamp(adv_instance,self.x_box_min,self.x_box_max)
+            if self.mode == 'shs':
+                # remain only incoming packets, keep all packets negative as incoming only
+                adv_instance = x + torch.clamp(pert, self.pert_box_min, self.pert_box_max)
+                adv_instance = torch.clamp(adv_instance,self.x_box_min,self.x_box_max)
+                adv_instance = adv_instance.to(self.device)
+            elif self.mode == 'wf':
+                # adv_instance = utils_gb.add_perturbation(x,pert)
+                # adv_instance = adv_instance.to(self.device)
+
+                "normalization data"
+                input_shape = x.shape
+                X_temp = x.view(-1, 1)
+                X_temp = X_temp.data.cpu().numpy()
+                scaler = MinMaxScaler(feature_range=(-1, 1))
+                scaler = scaler.fit(X_temp)
+                X_norm = scaler.transform(X_temp)
+                X_norm = torch.Tensor(X_norm)
+                X_norm = X_norm.view(input_shape)
+
+                adv_x_norm = utils_gb.add_perturbation(X_norm, pert)
+                adv_x_norm = adv_x_norm.view(-1, 1)
+                adv_instance = scaler.inverse_transform(adv_x_norm.data.cpu().numpy())
+                adv_instance = torch.Tensor(adv_instance)
+                adv_instance = adv_instance.view(input_shape).to(self.device)
+
+
+            else:
+                print('mode should in ["wf","shs"], system will exit.')
+                sys.exit()
 
             self.optimizer_D.zero_grad()
             loss_D = torch.mean(self.discriminator(adv_instance)) - torch.mean(self.discriminator(x))
@@ -97,7 +105,7 @@ class advGan_attack:
             # cal adv loss
             logits_model = self.target_model(adv_instance)
             probs_model = F.softmax(logits_model, dim=1)
-            onehot_labels = torch.eye(Config.model_num_labels, device=self.device)[labels]
+            onehot_labels = torch.eye(self.model_num_labels, device=self.device)[labels]
 
             # C&W loss function
             real = torch.sum(onehot_labels * probs_model, dim=1)
@@ -157,9 +165,9 @@ class advGan_attack:
                    loss_perturb_sum / num_batch, loss_adv_sum / num_batch))
 
             # save generator
-            if epoch % 20 == 0:
-                torch.save(self.generator.state_dict(), '../model/adv_generator.pth')
-                torch.save(self.discriminator.state_dict(), '../model/adv_discriminator.pth')
+            if epoch % 10 == 0:
+                torch.save(self.generator.state_dict(), self.models_path + '/adv_generator.pth')
+                torch.save(self.discriminator.state_dict(), self.models_path + '/adv_discriminator.pth')
 
 
 

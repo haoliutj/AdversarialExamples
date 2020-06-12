@@ -3,32 +3,36 @@ os.sys.path.append('..')
 
 import torch
 import time
-from adv_box.attacks import FGSM, DeepFool, LinfPGDAttack,DeepFool_batch_train
+from adv_box.attacks import FGSM, DeepFool, LinfPGDAttack
 from advGAN import models
 import utils
 
 
-adversary = 'DeepFool'
-batch_size = 1
+adversary = 'PGD'
+input_size = 256
+num_class = 101
+batch_size = 64
+mode = 'shs'
+x_box_min = -1
+x_box_max = 0
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 
 # set adversary
 if adversary == 'FGSM':
     print('adv testing with FGSM')
-    adversary = FGSM(epsilon=0.1)
+    adversary = FGSM(mode,x_box_min,x_box_max,epsilon=0.1)
 elif adversary == 'DeepFool':
     print('adv testing with DeepFool')
-    adversary = DeepFool(num_classes=5)
-    # adversary = DeepFool_batch_train(num_classes=10)
+    adversary = DeepFool(mode,x_box_min,x_box_max,num_classes=5)
 elif adversary == 'PGD':
     print('adv testing with PGD')
-    adversary = LinfPGDAttack(k=5, random_start=False)
+    adversary = LinfPGDAttack(mode,x_box_min,x_box_max,k=5, random_start=False)
 
 
 
 "load target model"
-params = utils.params()
+params = utils.params(num_class,input_size)
 model = models.target_model_1(params)
 model.load_state_dict(torch.load('../model/target_model.pth', map_location = device))
 model.to(device)

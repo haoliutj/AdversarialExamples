@@ -3,7 +3,7 @@ import math
 
 
 class target_model(nn.Module):
-    "imroved one with around 85% acc"
+
 
     def __init__(self,params):
         self.params = params

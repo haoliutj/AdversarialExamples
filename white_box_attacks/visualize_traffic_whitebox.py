@@ -1,9 +1,8 @@
 import torch
 from advGAN import models
-import read_data
 import numpy as np
 import utils
-from adv_box.attacks import FGSM,DeepFool,DeepFool_batch_train,LinfPGDAttack
+from website_fingerprinting.adv_box.attacks import FGSM,DeepFool,LinfPGDAttack
 
 
 

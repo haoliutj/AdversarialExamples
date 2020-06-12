@@ -90,7 +90,7 @@ class target_model_1(nn.Module):
             nn.MaxPool1d(kernel_size=self.params['pool4'])
         )
 
-        self.out_param1 = math.ceil(math.ceil(math.ceil(math.ceil(256/self.params['pool1'])/self.params['pool2'])/self.params['pool3'])/self.params['pool4'])
+        self.out_param1 = math.ceil(math.ceil(math.ceil(math.ceil(self.params['input_size']/self.params['pool1'])/self.params['pool2'])/self.params['pool3'])/self.params['pool4'])
         self.out = nn.Linear(self.params['conv4_output_channel']*self.out_param1,self.params['num_classes'])
 
 

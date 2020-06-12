@@ -3,11 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import torch
 import torch.utils.data as Data
+from sklearn.preprocessing import MinMaxScaler
 
 
 
-def params():
+def params(num_class,input_size):
     "hyperparameters for target model"
+
+    print('input_size: {}'.format(input_size))
 
     return {
         'conv1_input_channel': 1,
@@ -38,8 +41,8 @@ def params():
         'pool2': 2,
         'pool3': 2,
         'pool4': 2,
-        'num_classes': 95,
-        'input_size':512
+        'num_classes': num_class,
+        'input_size':input_size
     }
 
 
@@ -55,6 +58,12 @@ def load_pkl_data(path):
 
 def burst_transform(data,slice_threshold):
     "transform binary format to burst format"
+
+    "dataframe to list"
+    if type(data) == list:
+        pass
+    else:
+        data = data.values.tolist()
 
     burst_data = []
     burst_nopadding = []
@@ -159,7 +168,7 @@ def data_preprocess(X,y):
 
 
 def convert2dataframe(x,y,mode='padding'):
-    "convert to dataframe format, merge x and y in one df"
+    "convert list to dataframe format, merge x and y in one df"
     df = pd.DataFrame(x)
 
     if mode == 'padding':
@@ -189,11 +198,53 @@ def load_csv_data(path):
     return x, label
 
 
+
+def data_normalize(data):
+    """
+    normalize data with MinMaxScaler [-1,1]
+    :param data: ndarray
+    :return: ndarray
+    """
+
+    if not isinstance(data,np.ndarray):
+        data = data.to_numpy()
+
+    input_shape = data.shape
+    data = data.reshape(-1,1)
+    scaler = MinMaxScaler(feature_range=(-1,1))
+    scaler = scaler.fit(data)
+    data = scaler.transform(data)
+    data = data.reshape(input_shape)
+
+    return data
+
+
+def inverse_normalize(input_data):
+    """
+
+    :param input_data: ndarray
+    :return: ndarray
+    """
+
+    if type(input_data) == torch.Tensor:
+        input_data = input_data.data.cpu().numpy()
+
+    input_shape = input_data.shape
+    input_data = input_data.reshape(-1,1)
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    input_data = scaler.inverse_transform(input_data)
+    input_data = input_data.reshape(input_shape)
+
+    return input_data
+
+
+
 def Data_loader(x, y,batch_size):
     """
     input: X, y ( X: dataframe, y: ndarray)
     output: tensor_loader. train_loader, test_loader
     """
+
 
     " add dimension, df to ndarray "
     x = np.expand_dims(x, axis=1)
@@ -224,41 +275,27 @@ def load_data_main(path,batch_size):
 
 
 def extract_data_each_class(path,num):
-    "extract num instances for each class"
+    "extract num instances for each class,return data in list"
 
     X,Y = load_csv_data(path)
-    X_new, Y_new = [X[0]],[Y[0]]
+    X_new, Y_new = [],[]
 
     Y_set = set(Y)
-    Y_length = len(Y)
 
-    j = 0
-    temp = Y_set[j]
-    count = 1
 
-    for (i,y), y_set_i in zip(enumerate(Y),Y_set):
-        if temp == y and count <= num:
-            X_new.append(X[i])
-            Y_new.append(Y[i])
-            count += 1
-            if count > num:
-                temp = Y_set[j+1]
-
-    for i,y in enumerate(Y[1:]):
-        if temp == y and count <= num:
-            X_new.append(X[i])
-            Y_new.append(Y[i])
-            count += 1
-            if count > num:
-                temp = Y[i+1]
+    for y_set_i in Y_set:
+        temp = y_set_i
+        count = 1
+        for i,y in enumerate(Y):
+            if y == temp and count <= num:
+                X_new.append(X.iloc[i,:])
+                Y_new.append(y)
+                count += 1
+                if count > num:
+                    break
+    print('{} instances per class, {} classes in toal.'.format(num,len(Y_set)))
+    return X_new,Y_new
 
 
 
-
-if __name__ == '__main__':
-    a = [[1,1,1,-1,-1,-1,-1,-1,1,-1,-1,1,1,-1,1,1,1,1],[1,1,-1,0,1,-1,-1],[0,1,1,-1],[-1,-1,-1,1,1,0,1,1,-1],[1,1,1,1],[1,1,1,1],[1,1,1,1],[1,1,1,1]]
-    # burst = burst_transform(a)
-    # print(burst)
-    # write2csv(burst,'data')
-    size_distribution(a)
 

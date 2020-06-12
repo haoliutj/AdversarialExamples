@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import torch.utils.data as Data
 
 
-def params():
+def params(num_class,input_size):
     return {
         'conv1_input_channel': 1,
         'conv2_input_channel': 128,
@@ -35,8 +35,8 @@ def params():
         'pool2': 2,
         'pool3': 2,
         'pool4': 2,
-        'num_classes': 101,
-        'dim': 256
+        'num_classes': num_class,
+        'input_size': input_size
     }
 
 
@@ -181,3 +181,49 @@ def load_data_main(path,batch_size):
     x,y = load_data(path)
     data_loader = data_preprocess(x,y,batch_size)
     return data_loader
+
+
+
+def add_perturbation(x,pert):
+    """
+    the perturbation add to burst format data in Website Finerprinting
+    must be keep the result increase in the original direction
+    e.g., x = [-2,3,-1], pert = [-0.03,-0.04,-0.1], x+pert=[-2-0.03,3+0,-1-0.1]=[-2.03,3,-1.1]
+
+    :param x: ndarray
+    :param pert: ndarray
+    :return: torch.Tensor
+    """
+
+    input_shape = x.shape
+
+    "Tensor to ndarray"
+    if type(x) == torch.Tensor:
+        x = x.data.cpu().numpy()
+    if type(pert) == torch.Tensor:
+        pert = pert.data.cpu().numpy()
+
+
+    result = []
+
+    for i in range(len(x)):
+        for j in range(len(x[i][0])):
+            a = x[i][0][j]
+            b = pert[i][0][j]
+            if a * b >= 0:
+                temp = a + b
+                result.append(temp)
+            else:
+                temp = a
+                result.append(temp)
+
+    result = torch.Tensor(np.array(result))
+    result = result.view(input_shape)
+
+    # for i in range(len(x)):
+    #     if x[i] * pert[i] >=0:
+    #         result[i] = x[i] + pert[i]
+    #     else:
+    #         result[i] = x[i]
+
+    return result
