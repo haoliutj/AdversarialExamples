@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="87e21941-6e79-48b7-85cb-52f22bbb742d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../adver_examples/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/adv_box/attacks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/adv_box/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/adv_box/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/attack_performance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/cnn_pytorch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/cnn_torch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/cnn_torch_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/data_process.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/dataset_distribution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/deepfool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/deepfool_torch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/fgsm4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/fgsm_torch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/fsgm3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/gan/dataload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/gan/test1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/gan/wgan.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/gen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/lstm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/myUtils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../adver_examples/src/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/advWGAN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/adv_train_against_adv_examples.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/adv_training.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/attacking_performance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/fig_0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/fig_pert0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/fig_pert1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/fig_pert2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/fig_pert3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/single_fig/fig_0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/single_fig/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/single_fig/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/single_fig/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/single_fig/fig_pert0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/single_fig/fig_pert1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/single_fig/fig_pert2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/fig/single_fig/fig_pert3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/other/advGAN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/other/cnn_tf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/other/data_loader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/other/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/other/test_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/test_target_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/train_advWGAN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/train_target_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/utils_advGAN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advGAN/visualize_traffic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/DefenseGan_G.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Defense_G_batch_1000/DefenseGan_G.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Defense_G_batch_1000/Screen Shot 2020-05-27 at 10.34.17 AM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Defense_G_batch_600/DefenseGan_G.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Defense_G_batch_600/Screen Shot 2020-05-26 at 5.20.46 PM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/adv_discriminator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/adv_generator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/adv_target_model_DeepFool.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/adv_target_model_FGSM.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/adv_target_model_GAN.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/adv_target_model_PGD.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/DefenseGan_D.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/DefenseGan_G.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/adv_generator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/adv_target_model_DeepFool.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/adv_target_model_FGSM.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/adv_target_model_PGD.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/adv_train/adv_FGSM/adv_target_model_FGSM.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/adv_train/adv_deepfool/adv_target_model_DeepFool.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/adv_train/adv_gan/adv_target_model.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/adv_train/adv_pgd/adv_target_model_PGD.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/gans/gans_original_traffic_400/adv_discriminator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/gans/gans_original_traffic_400/adv_generator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/gans/gans_traffic_256/4:27_remain_incoming/adv_discriminator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/gans/gans_traffic_256/4:27_remain_incoming/adv_generator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/gans/gans_traffic_256/4:28/adv_discriminator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/gans/gans_traffic_256/4:28/adv_generator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/gans/gans_traffic_256/adv_discriminator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/gans/gans_traffic_256/adv_generator.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/normal_train/target_model.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/outgoing_positive/target_model.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target_model.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/wf_model/input_size_1024/target_model.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/wf_model/input_size_512/target_model.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/wf_model/target_model.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/conv_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/data_loader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/gan_main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/gen.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/read_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/sgan.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/sgan_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/swgan_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/wgan.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/wgan_gp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/adv_training.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/attack_performance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/data_processing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/fig/size_cdf.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/fig/size_cdf_pdf.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/fig/size_distribution.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/gen_adv_examples.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/test_adv_examples.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/train_target_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_fingerprinting/utils_wf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/adv_box/attacks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/adv_box/deepfool_batch_train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/adv_box/train.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/adv_training.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/adv_training_deepfool.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/attack_performance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_4.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_pert0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_pert1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_pert2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_pert3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig/fig_pert4.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig_1/fig_0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig_1/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig_1/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig_1/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig_1/fig_pert0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig_1/fig_pert1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig_1/fig_pert2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/DeepFool/single_fig_1/fig_pert3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig/fig_0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig/fig_pert0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig/fig_pert1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig/fig_pert2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig/fig_pert3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig_1/fig_0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig_1/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig_1/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig_1/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig_1/fig_pert0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig_1/fig_pert1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig_1/fig_pert2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/FGSM/single_fig_1/fig_pert3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/single_fig/fig_0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/single_fig/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/single_fig/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/single_fig/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/single_fig/fig_pert0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/single_fig/fig_pert1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/single_fig/fig_pert2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/PGD/single_fig/fig_pert3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/fig_0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/fig_1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/fig_2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/fig_3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/fig_pert0.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/fig_pert1.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/fig_pert2.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/fig/fig_pert3.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/gen_adv_examples.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/model/adv_target_model_FGSM.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/run_replace.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/test_adv_examples.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/utils_wb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/white_box_attacks/visualize_traffic_whitebox.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decisionTrees/.idea/decisionTrees.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decisionTrees/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decisionTrees/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decisionTrees/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decisionTrees/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decisionTrees/trees.py" beforeDir="false" afterPath="$PROJECT_DIR$/../decisionTrees/trees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../feature_extract/.idea/other.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../feature_extract/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../learnGit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../skylineQuery/skyline.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/.idea/text_post_process.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/data/enron_top_keywords_meaningful.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/data/enron_top_keywords_test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/src/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../text_post_process/src/text_process.py" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/AdversarialExamples$test_adv_examples.coverage" NAME="test_adv_examples Coverage Results" MODIFIED="1591755939116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$test.coverage" NAME="test Coverage Results" MODIFIED="1591977041378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$attack_performance.coverage" NAME="attack_performance Coverage Results" MODIFIED="1591202641828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$data_loader__1_.coverage" NAME="data_loader (1) Coverage Results" MODIFIED="1586964700552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$train_advWGAN.coverage" NAME="train_advWGAN Coverage Results" MODIFIED="1591806207146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$wgan.coverage" NAME="wgan Coverage Results" MODIFIED="1586889036067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$data_processing.coverage" NAME="data_processing Coverage Results" MODIFIED="1591914538854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$utils_wf.coverage" NAME="utils_wf Coverage Results" MODIFIED="1591199509896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$utils_wf.coverage" NAME="utils_wf Coverage Results" MODIFIED="1591572767287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$defense_gan.coverage" NAME="defense_gan Coverage Results" MODIFIED="1589991827117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DefenseGAN" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$adv_training.coverage" NAME="adv_training Coverage Results" MODIFIED="1591735682906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1591148103800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$adv_training.coverage" NAME="adv_training Coverage Results" MODIFIED="1591141628853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/white_box_attacks" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$gen_adv_examples.coverage" NAME="gen_adv_examples Coverage Results" MODIFIED="1591141690953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/white_box_attacks" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$pre_processing.coverage" NAME="pre_processing Coverage Results" MODIFIED="1591389631706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$wgan_gp.coverage" NAME="wgan_gp Coverage Results" MODIFIED="1589295247621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$visualize_traffic.coverage" NAME="visualize_traffic Coverage Results" MODIFIED="1591128537345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$train_test_data.coverage" NAME="train_test_data Coverage Results" MODIFIED="1587664782080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$test.coverage" NAME="test Coverage Results" MODIFIED="1590696901514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_data" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$performance_against_advX.coverage" NAME="performance_against_advX Coverage Results" MODIFIED="1592247680852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/attacks" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$gan_main.coverage" NAME="gan_main Coverage Results" MODIFIED="1584717040375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$swgan_2.coverage" NAME="swgan_2 Coverage Results" MODIFIED="1585708687981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$attacking_performance.coverage" NAME="attacking_performance Coverage Results" MODIFIED="1591193540798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$attacks.coverage" NAME="attacks Coverage Results" MODIFIED="1591713450109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/white_box_attacks/adv_box" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$utils.coverage" NAME="utils Coverage Results" MODIFIED="1588016686771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$advWGAN.coverage" NAME="advWGAN Coverage Results" MODIFIED="1591806197382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$attacking_performance.coverage" NAME="attacking_performance Coverage Results" MODIFIED="1591813782637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1591915723529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$gan.coverage" NAME="gan Coverage Results" MODIFIED="1584991325297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$pre_processing.coverage" NAME="pre_processing Coverage Results" MODIFIED="1591639311168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$test_adversarial_examples.coverage" NAME="test_adversarial_examples Coverage Results" MODIFIED="1591191834828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$attack_performance.coverage" NAME="attack_performance Coverage Results" MODIFIED="1591727834950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$attack_performance__1_.coverage" NAME="attack_performance (1) Coverage Results" MODIFIED="1591731342436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/white_box_attacks" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$sgan_1.coverage" NAME="sgan_1 Coverage Results" MODIFIED="1585691609030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$main.coverage" NAME="main Coverage Results" MODIFIED="1586879968417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$gen_adv_examples.coverage" NAME="gen_adv_examples Coverage Results" MODIFIED="1591737676203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/AdversarialExamples$train_target_model.coverage" NAME="train_target_model Coverage Results" MODIFIED="1591911068676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$visualize_traffic_whitebox.coverage" NAME="visualize_traffic_whitebox Coverage Results" MODIFIED="1591114239658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/white_box_attacks" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$main_advWGAN.coverage" NAME="main_advWGAN Coverage Results" MODIFIED="1586914545193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/advGAN" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$test_adv_examples.coverage" NAME="test_adv_examples Coverage Results" MODIFIED="1588780867611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/white_box_attacks" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$testing.coverage" NAME="testing Coverage Results" MODIFIED="1591144755533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$train_wgan.coverage" NAME="train_wgan Coverage Results" MODIFIED="1590433701163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DefenseGAN" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$read_data.coverage" NAME="read_data Coverage Results" MODIFIED="1587484281703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GAN_time_serie$train_target_model.coverage" NAME="train_target_model Coverage Results" MODIFIED="1591200003031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website_fingerprinting" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train/train_target_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train/adv_train_target_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="147" column="12" selection-start-line="147" selection-start-column="12" selection-end-line="148" selection-end-column="114" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/train/adv_training_deepfool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="716">
+              <caret line="235" column="41" selection-start-line="235" selection-start-column="41" selection-end-line="235" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/attacks/gan/gan.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2601">
+              <caret line="153" column="70" selection-start-line="153" selection-start-column="70" selection-end-line="153" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train/test_target_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="37" selection-start-column="37" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/attacks/performance_against_advX.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2907">
+              <caret line="171" column="28" selection-start-line="171" selection-start-column="28" selection-end-line="171" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train/train_gan.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="24" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train/utils_wf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5899">
+              <caret line="352" column="4" selection-start-line="352" selection-start-column="4" selection-end-line="352" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train/utils_gan.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/white_box_attacks/adv_training_deepfool.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/test_adv_examples.py" />
+        <option value="$PROJECT_DIR$/advGAN/test_target_model.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/pre_processing.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/data_preprocessing.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/README.md" />
+        <option value="$PROJECT_DIR$/data/NoDef/README.md" />
+        <option value="$PROJECT_DIR$/advGAN/models.py" />
+        <option value="$PROJECT_DIR$/advGAN/utils_advGAN.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/adv_box/utils.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/adv_box/utils_advBox.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/adv_box/deepfool_batch_train.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/attack_performance.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/utils.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/visualize_traffic_whitebox.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/attack_performance.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/adv_training.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/test_adv_examples.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/gen_adv_examples.py" />
+        <option value="$PROJECT_DIR$/advGAN/test_adversarial_examples.py" />
+        <option value="$PROJECT_DIR$/advGAN/adv_train_against_adv_examples.py" />
+        <option value="$PROJECT_DIR$/advGAN/train_advWGAN.py" />
+        <option value="$PROJECT_DIR$/advGAN/attacking_performance.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/models.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/data_processing.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/test.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/train_target_model.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/website_fingerprinting/utils_wf.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/adv_box/attacks.py" />
+        <option value="$PROJECT_DIR$/advGAN/advWGAN.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/utils_wb.py" />
+        <option value="$PROJECT_DIR$/advGAN/adv_training.py" />
+        <option value="$PROJECT_DIR$/white_box_attacks/adv_training.py" />
+        <option value="$PROJECT_DIR$/train/adv_training.py" />
+        <option value="$PROJECT_DIR$/attacks/attack_performance.py" />
+        <option value="$PROJECT_DIR$/attacks/adv_model_performance.py" />
+        <option value="$PROJECT_DIR$/train/utils_wf.py" />
+        <option value="$PROJECT_DIR$/attacks/test_performance_against_advX.py" />
+        <option value="$PROJECT_DIR$/train/utils_gan.py" />
+        <option value="$PROJECT_DIR$/attacks/gan/gan.py" />
+        <option value="$PROJECT_DIR$/attacks/white_box/adv_box/attacks.py" />
+        <option value="$PROJECT_DIR$/train/adv_train_deepfool.py" />
+        <option value="$PROJECT_DIR$/attacks/gen_adv_examples.py" />
+        <option value="$PROJECT_DIR$/train/adv_train_target_model.py" />
+        <option value="$PROJECT_DIR$/train/test_target_model.py" />
+        <option value="$PROJECT_DIR$/train/train_target_model.py" />
+        <option value="$PROJECT_DIR$/attacks/performance_against_advX.py" />
+        <option value="$PROJECT_DIR$/train/adv_training_deepfool.py" />
+        <option value="$PROJECT_DIR$/train/train_gan.py" />
+      </list>
+    </option>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="754" />
+  </component>
+  <component name="ProjectId" id="1YzsDAKQcRCYkJ2DS5C0S5R9Zcf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AdversarialExamples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdversarialExamples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdversarialExamples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdversarialExamples" type="462c0819:PsiDirectoryNode" />
+              <item name="attacks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdversarialExamples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdversarialExamples" type="462c0819:PsiDirectoryNode" />
+              <item name="attacks" type="462c0819:PsiDirectoryNode" />
+              <item name="white_box" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdversarialExamples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdversarialExamples" type="462c0819:PsiDirectoryNode" />
+              <item name="attacks" type="462c0819:PsiDirectoryNode" />
+              <item name="white_box" type="462c0819:PsiDirectoryNode" />
+              <item name="adv_box" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdversarialExamples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdversarialExamples" type="462c0819:PsiDirectoryNode" />
+              <item name="old" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdversarialExamples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdversarialExamples" type="462c0819:PsiDirectoryNode" />
+              <item name="old" type="462c0819:PsiDirectoryNode" />
+              <item name="advGAN" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AdversarialExamples" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdversarialExamples" type="462c0819:PsiDirectoryNode" />
+              <item name="train" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/attacks" />
+      <recent name="$PROJECT_DIR$/train" />
+      <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/advGAN" />
+      <recent name="$PROJECT_DIR$/white_box_attacks" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.performance_against_advX">
+    <configuration name="data_loader" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="GAN_time_serie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_loader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="data_processing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GAN_time_serie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website_fingerprinting" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website_fingerprinting/data_processing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="performance_against_advX" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GAN_time_serie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/attacks" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/attacks/performance_against_advX.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GAN_time_serie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website_fingerprinting" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website_fingerprinting/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GAN_time_serie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train_target_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GAN_time_serie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website_fingerprinting" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website_fingerprinting/train_target_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.data_loader" />
+      <item itemvalue="Python.data_processing" />
+      <item itemvalue="Python.performance_against_advX" />
+      <item itemvalue="Python.test (1)" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.train_target_model" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.performance_against_advX" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.data_processing" />
+        <item itemvalue="Python.train_target_model" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87e21941-6e79-48b7-85cb-52f22bbb742d" name="Default Changelist" comment="" />
+      <created>1583956634602</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583956634602</updated>
+      <workItem from="1583956637252" duration="10093000" />
+      <workItem from="1584716552463" duration="4441000" />
+      <workItem from="1584991150757" duration="507000" />
+      <workItem from="1585529218312" duration="9000" />
+      <workItem from="1585596563537" duration="2000" />
+      <workItem from="1585665409467" duration="14600000" />
+      <workItem from="1586798584031" duration="75658000" />
+      <workItem from="1588005340514" duration="287000" />
+      <workItem from="1588007412074" duration="189293000" />
+      <workItem from="1591562998453" duration="83799000" />
+      <workItem from="1591971738719" duration="22230000" />
+      <workItem from="1592249506783" duration="3645000" />
+      <workItem from="1592253714885" duration="1738000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="396121000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15105008" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.28704664" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34093264" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37202072" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32953367" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.23212436" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3284974" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.83652824" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14589989" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.2877998" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33678755" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.48704663" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.38860103" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.23005182" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.83812565" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gan.py</url>
+          <line>138</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/advGAN/train_target_model.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/white_box_attacks/visualize_traffic_whitebox.py</url>
+          <line>63</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/white_box_attacks/visualize_traffic_whitebox.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DefenseGAN/gan_model.py</url>
+          <line>152</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DefenseGAN/gan_model.py</url>
+          <line>126</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DefenseGAN/gan_model.py</url>
+          <line>127</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DefenseGAN/utils_DenGAN.py</url>
+          <line>128</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DefenseGAN/gan_model.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DefenseGAN/gan_model.py</url>
+          <line>83</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/white_box_attacks/gen_adv_examples.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/white_box_attacks/gen_adv_examples.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/advGAN/visualize_traffic.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/advGAN/visualize_traffic.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/advGAN/adv_train_against_adv_examples.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/website_fingerprinting/utils_wf.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/website_fingerprinting/utils_wf.py</url>
+          <line>64</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/website_fingerprinting/data_processing.py</url>
+          <line>85</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/white_box_attacks/utils_wb.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/website_fingerprinting/test_adv_examples.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/website_fingerprinting/test_adv_examples.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/advGAN/attacking_performance.py</url>
+          <line>98</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/website_fingerprinting/train_target_model.py</url>
+          <line>136</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/website_fingerprinting/test.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/website_fingerprinting/test.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/attacks/white_box/adv_box/attacks.py</url>
+          <line>102</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/attacks/white_box/adv_box/attacks.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GAN_time_serie$gan_main.coverage" NAME="gan_main Coverage Results" MODIFIED="1583966831070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/advGAN/models.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/adv_box/train.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/adv_box/deepfool_batch_train.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/adv_box/utils.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/visualize_traffic_whitebox.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/gen_adv_examples.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/attack_performance.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/adv_training_deepfool.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/test_adv_examples.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/adv_training.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/test_adv_examples.py" />
+    <entry file="file://$PROJECT_DIR$/advGAN/utils_advGAN.py" />
+    <entry file="file://$PROJECT_DIR$/advGAN/attacking_performance.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/gen_adv_examples.py" />
+    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/site-packages/pandas/core/frame.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/train_target_model.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/attack_performance.py" />
+    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/site-packages/sklearn/preprocessing/data.py" />
+    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/site-packages/torch/tensor.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/models.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/data_processing.py" />
+    <entry file="file://$PROJECT_DIR$/utils.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/test.py" />
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py" />
+    <entry file="file://$PROJECT_DIR$/website_fingerprinting/utils_wf.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/adv_box/attacks.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/utils_wb.py" />
+    <entry file="file://$PROJECT_DIR$/advGAN/adv_training.py" />
+    <entry file="file://$PROJECT_DIR$/white_box_attacks/adv_training.py" />
+    <entry file="file://$PROJECT_DIR$/advGAN/adv_train_against_adv_examples.py" />
+    <entry file="file://$PROJECT_DIR$/attacks/adv_model_performance.py" />
+    <entry file="file://$PROJECT_DIR$/attacks/attack_performance.py" />
+    <entry file="file://$PROJECT_DIR$/advGAN/advWGAN.py" />
+    <entry file="file://$PROJECT_DIR$/advGAN/train_advWGAN.py" />
+    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/site-packages/torch/nn/modules/module.py" />
+    <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/copy.py" />
+    <entry file="file://$PROJECT_DIR$/attacks/white_box/adv_box/attacks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="115" column="74" selection-start-line="115" selection-start-column="74" selection-end-line="115" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old/advGAN/adv_training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="79" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/utils_wf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5899">
+          <caret line="352" column="4" selection-start-line="352" selection-start-column="4" selection-end-line="352" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/utils_gan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/adv_train_deepfool.py" />
+    <entry file="file://$PROJECT_DIR$/old/website_fingerprinting/gen_adv_examples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1989">
+          <caret selection-end-line="165" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/test_target_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/train_target_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attacks/performance_against_advX.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2907">
+          <caret line="171" column="28" selection-start-line="171" selection-start-column="28" selection-end-line="171" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attacks/gen_adv_examples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2449">
+          <caret line="165" selection-start-line="165" selection-end-line="165" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/adv_train_target_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="147" column="12" selection-start-line="147" selection-start-column="12" selection-end-line="148" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/adv_training_deepfool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="716">
+          <caret line="235" column="41" selection-start-line="235" selection-start-column="41" selection-end-line="235" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attacks/gan/gan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2601">
+          <caret line="153" column="70" selection-start-line="153" selection-start-column="70" selection-end-line="153" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train/train_gan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
