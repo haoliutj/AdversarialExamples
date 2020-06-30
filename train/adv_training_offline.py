@@ -16,56 +16,68 @@ class adv_train_deepfool:
 
         self.opts = opts
         self.mode = opts['mode']
-        self.model_path = '../model/' + self.mode
+        self.classifier_type = opts['classifier_type']
+        self.model_path = '../model/' + self.mode + '/' + self.classifier_type
+        self.data_path = '../data/' + self.mode + '/'
         self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
         print('CUDA AVAILABLE:', torch.cuda.is_available())
         print('Mode: ', self.mode)
 
         if not os.path.exists(self.model_path):
             os.makedirs(self.model_path)
+        print('model path:  ',self.model_path)
 
 
-    def x_adv_gen(self,x, y, model, adversary):
-        """
-        for white-box based adv training, target model training should separate with adv examples generation.
-        cause adv_training related to target model, and adv example generation involved target model.
-        therefore, should set target model as evaluation mode when producing adv examples in adv training
-        """
-        model_cp = copy.deepcopy(model)
-        for p in model_cp.parameters():
-            p.requires_grad = False
-        model_cp.eval()
-
-        adversary.model = model_cp
-        _,x_adv = adversary.perturbation(x, y,self.opts['alpha'])
-
-        return x_adv
+    # def x_adv_gen(self,x, y, model, adversary):
+    #     """
+    #     for white-box based adv training, target model training should separate with adv examples generation.
+    #     cause adv_training related to target model, and adv example generation involved target model.
+    #     therefore, should set target model as evaluation mode when producing adv examples in adv training
+    #     """
+    #     model_cp = copy.deepcopy(model)
+    #     for p in model_cp.parameters():
+    #         p.requires_grad = False
+    #     model_cp.eval()
+    #
+    #     adversary.model = model_cp
+    #     _,x_adv = adversary.perturbation(x, y,self.opts['alpha'])
+    #
+    #     return x_adv
 
 
     def adv_train_process(self,delay=0.5):
         "Adversarial training, returns pertubed mini batch"
         "delay: parameter to decide how many epochs should be used as adv training"
 
+        adv_train_data_path = self.data_path + self.classifier_type + '/' + self.opts['adv_train_data_path']
+
         if self.mode == 'wf':
             "load data"
-            train_data = utils_wf.load_data_main(self.opts['train_data_path'],self.opts['batch_size'])
-            test_data = utils_wf.load_data_main(self.opts['test_data_path'],self.opts['batch_size'])
-            adv_train_data = utils_wf.load_data_main(self.opts['adv_train_data_path'],self.opts['batch_size'])
+            train_data = utils_wf.load_data_main(self.data_path + self.opts['train_data_path'],self.opts['batch_size'])
+            test_data = utils_wf.load_data_main(self.data_path + self.opts['test_data_path'],self.opts['batch_size'])
+
+            adv_train_data = utils_wf.load_data_main(adv_train_data_path,self.opts['batch_size'])
 
             "load target model structure"
-            params = utils_wf.params(self.opts['num_class'],self.opts['input_size'])
-            target_model = models.target_model_wf(params).to(self.device)
-            target_model.train()
+            if self.classifier_type == 'cnn':
+                params = utils_wf.params_cnn(self.opts['num_class'], self.opts['input_size'])
+                target_model = models.cnn_norm(params).to(self.device)
+
+            elif self.classifier_type == 'lstm':
+                params = utils_wf.params_lstm_eval(self.opts['num_class'], self.opts['input_size'],self.opts['batch_size'])
+                target_model = models.lstm(params).to(self.device)
+                target_model.train()
+
 
         elif self.mode == 'shs':
             "load data"
-            train_data = utils_shs.load_data_main(self.opts['train_data_path'],self.opts['batch_size'])
-            test_data = utils_shs.load_data_main(self.opts['test_data_path'],self.opts['batch_size'])
-            adv_train_data = utils_shs.load_data_main(self.opts['adv_train_data_path'], self.opts['batch_size'])
+            train_data = utils_shs.load_data_main(self.data_path + self.opts['train_data_path'],self.opts['batch_size'])
+            test_data = utils_shs.load_data_main(self.data_path + self.opts['test_data_path'],self.opts['batch_size'])
+            adv_train_data = utils_shs.load_data_main(adv_train_data_path, self.opts['batch_size'])
 
             "load target model structure"
             params = utils_shs.params(self.opts['num_class'],self.opts['input_size'])
-            target_model = models.target_model_shs(params).to(self.device)
+            target_model = models.cnn_noNorm(params).to(self.device)
             target_model.train()
 
         else:
@@ -225,49 +237,52 @@ def test_main(opts):
     adv_training.testing_process()
 
 
-def get_opts_wf(mode,Adversary):
+def get_opts_wf(mode,Adversary,classifier_type):
 
     return {
         'mode':mode,
         'Adversary': Adversary,
+        'classifier_type': classifier_type,
         'input_size':512,
         'num_class':95,
         'epochs': 50,
         'batch_size': 64,
-        'train_data_path':'../data/wf/train_NoDef_burst.csv',
-        'test_data_path':'../data/wf/test_NoDef_burst.csv',
-        'adv_train_data_path':'../data/wf/adv_train_' + Adversary +'.csv',
+        'train_data_path': 'train_NoDef_burst.csv',
+        'test_data_path': 'test_NoDef_burst.csv',
+        'adv_train_data_path': 'adv_train_' + Adversary +'.csv',
 
     }
 
 
-def get_opts_shs(mode,Adversary):
+def get_opts_shs(mode,Adversary,classifier_type):
 
     return {
         'mode':mode,
         'Adversary': Adversary,
+        'classifier_type': classifier_type,
         'input_size':256,
         'num_class':101,
         'batch_size':64,
         'epochs':50,
-        'train_data_path':'../data/shs/traffic_train.csv',
-        'test_data_path':'../data/shs/traffic_test.csv',
-        'adv_train_data_path':'../data/shs/adv_train_' + Adversary + '.csv',
+        'train_data_path': 'traffic_train.csv',
+        'test_data_path': 'traffic_test.csv',
+        'adv_train_data_path': 'adv_train_' + Adversary + '.csv',
 
     }
 
 
 if __name__ == '__main__':
 
-    modes = ['shs']
-    Adversary = ['DeepFool']
+    modes = ['wf']
+    Adversary = ['FGSM','PGD','GAN','DeepFool',]
+    classifier_type = 'lstm'    #  ['lstm','cnn']
 
     for adv in Adversary:
         print('Adversary: ', adv)
         for mode in modes:
             if mode == 'wf':
-                opts = get_opts_wf(mode,adv)
+                opts = get_opts_wf(mode,adv,classifier_type)
             else:
-                opts = get_opts_shs(mode,adv)
+                opts = get_opts_shs(mode,adv,classifier_type)
 
             train_main(opts)

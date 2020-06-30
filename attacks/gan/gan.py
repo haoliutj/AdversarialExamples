@@ -5,7 +5,7 @@ import torch
 from train import models
 from train import utils_wf,utils_shs,utils_gan
 import torch.nn.functional as F
-import os,sys
+import os,sys,copy
 
 
 
@@ -15,7 +15,8 @@ class advGan:
 
         self.opts = opts
         self.mode = opts['mode']
-        self.model_path = '../model/' + self.mode
+        self.classifier_type = opts['classifier_type']
+        self.model_path = '../model/' + self.mode + '/' + opts['classifier_type']
         self.pert_box = pert_box
         self.x_box_min = x_box_min
         self.x_box_max = x_box_max
@@ -35,6 +36,18 @@ class advGan:
 
         if not os.path.exists(self.model_path):
             os.makedirs(self.model_path)
+
+
+    def model_reset(self,model):
+        """
+        given lstm model can't be backward in eval mode,
+        so set dropout=0 and parameters require_grad=False in train mode, which is equal to eval mode
+        """
+        model_cp = copy.deepcopy(model)
+        for p in model_cp.parameters():
+            p.requires_grad = False
+
+        return model_cp
 
 
     def train_batch(self,x,labels,target_model):
@@ -97,9 +110,16 @@ class advGan:
 
         "load target model"
         if self.mode == 'wf':
+
             "load target model structure"
-            params = utils_wf.params(self.opts['num_class'], self.opts['input_size'])
-            target_model = models.target_model_wf(params).to(self.device)
+            if self.classifier_type == 'cnn':
+                params = utils_wf.params_cnn(self.opts['num_class'], self.opts['input_size'])
+                target_model = models.cnn_norm(params).to(self.device)
+
+            elif self.classifier_type == 'lstm':
+                params = utils_wf.params_lstm_eval(self.opts['num_class'], self.opts['input_size'], self.opts['batch_size'])
+                target_model = models.lstm(params).to(self.device)
+
 
         elif self.mode == 'shs':
             "load target model structure"
@@ -112,7 +132,15 @@ class advGan:
 
         model_name = self.model_path + '/target_model.pth'
         target_model.load_state_dict(torch.load(model_name, map_location=self.device))
-        target_model.eval()
+
+        "set equal_eval mode of train instead eval for lstm"
+        if self.classifier_type == 'lstm':
+            target_model = self.model_reset(target_model)
+            target_model.train()
+        elif self.classifier_type == 'cnn':
+            target_model.eval()
+
+        target_model.to(self.device)
 
         for epoch in range(1, self.opts['epochs'] + 1):
 

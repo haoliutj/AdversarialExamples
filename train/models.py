@@ -1,15 +1,17 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+import torch.autograd as autograd
 
 
 #----------------------------------------------
-class target_model_shs(nn.Module):
-    "imroved one with around 85% acc"
+class cnn_noNorm(nn.Module):
+    "works for the data that already normalized"
 
     def __init__(self,params):
         self.params = params
-        super(target_model_shs, self).__init__()
+        super(cnn_noNorm, self).__init__()
 
         self.conv1 = nn.Sequential(
             nn.Conv1d(in_channels=self.params['conv1_input_channel'], out_channels=self.params['conv1_output_channel'],
@@ -62,72 +64,12 @@ class target_model_shs(nn.Module):
 
 
 #----------------------------------------------
-class target_model_wf(nn.Module):
-    "same as target_model_shs"
+class cnn_norm(nn.Module):
+    "works for the website fingerprinting burst data without normalized"
 
     def __init__(self,params):
         self.params = params
-        super(target_model_wf, self).__init__()
-
-        self.conv1 = nn.Sequential(
-            nn.Conv1d(in_channels=self.params['conv1_input_channel'], out_channels=self.params['conv1_output_channel'],
-                      kernel_size=self.params['kernel_size1'], stride=self.params['stride1'], padding=self.params['padding1']),
-            nn.ReLU(),
-            nn.Dropout(self.params['drop_rate1']),
-            nn.MaxPool1d(kernel_size=self.params['pool1'])
-        )
-
-        self.conv2 = nn.Sequential(
-            nn.Conv1d(in_channels=self.params['conv2_input_channel'], out_channels=self.params['conv2_output_channel'],
-                      kernel_size=self.params['kernel_size2'], stride=self.params['stride2'],
-                      padding=self.params['padding2']),
-            nn.ReLU(),
-            nn.Dropout(self.params['drop_rate2']),
-            nn.MaxPool1d(kernel_size=self.params['pool2'])
-        )
-
-        self.conv3 = nn.Sequential(
-            nn.Conv1d(in_channels=self.params['conv3_input_channel'], out_channels=self.params['conv3_output_channel'],
-                      kernel_size=self.params['kernel_size3'], stride=self.params['stride3'],
-                      padding=self.params['padding3']),
-            nn.ReLU(),
-            nn.Dropout(self.params['drop_rate3']),
-            nn.MaxPool1d(kernel_size=self.params['pool3'])
-        )
-
-        self.conv4 = nn.Sequential(
-            nn.Conv1d(in_channels=self.params['conv4_input_channel'], out_channels=self.params['conv4_output_channel'],
-                      kernel_size=self.params['kernel_size4'], stride=self.params['stride4'],
-                      padding=self.params['padding4']),
-            nn.ReLU(),
-            nn.Dropout(self.params['drop_rate4']),
-            nn.MaxPool1d(kernel_size=self.params['pool4'])
-        )
-
-        self.out_param1 = math.ceil(math.ceil(math.ceil(math.ceil(self.params['input_size']/self.params['pool1'])/self.params['pool2'])/self.params['pool3'])/self.params['pool4'])
-        self.out = nn.Linear(self.params['conv4_output_channel']*self.out_param1,self.params['num_classes'])
-
-
-    def forward(self,x):
-        x = self.conv1(x)
-        x = self.conv2(x)
-        x = self.conv3(x)
-        x = self.conv4(x)
-        x = x.view(x.size(0),-1)
-        logits = self.out(x)
-        return logits
-
-
-
-
-
-#----------------------------------------------
-class target_model_norm(nn.Module):
-
-
-    def __init__(self,params):
-        self.params = params
-        super(target_model_norm, self).__init__()
+        super(cnn_norm, self).__init__()
 
         self.conv1 = nn.Sequential(
             nn.Conv1d(in_channels=self.params['conv1_input_channel'], out_channels=self.params['conv1_output_channel'],
@@ -180,6 +122,52 @@ class target_model_norm(nn.Module):
         x = x.view(x.size(0),-1)
         logits = self.out(x)
         return logits
+
+
+
+#----------------------------------------------
+class lstm(nn.Module):
+    def __init__(self,opts):
+
+        super(lstm,self).__init__()
+
+        self.opts = opts
+        self.device = ('cuda:0' if torch.cuda.is_available() else 'cpu')
+
+        "design lstm"
+        self.lstm = nn.LSTM(input_size=self.opts['input_size'],hidden_size=self.opts['hidden_dim'],num_layers=self.opts['num_layers'],
+                            dropout=self.opts['dropout'],batch_first=self.opts['batch_first'],bidirectional=self.opts['bidirectional'])
+
+        "output layer with logits"
+        self.hidden2out = nn.Linear(self.opts['hidden_dim'],self.opts['num_classes'])
+
+        "initial hidden state"
+        # self.hidden = self.init_hidden()
+
+    def init_hidden(self):
+        return (torch.zeros(self.opts['num_layers'], self.opts['batch_size'], self.opts['hidden_dim']).to(self.device),
+                torch.zeros(self.opts['num_layers'], self.opts['batch_size'], self.opts['hidden_dim']).to(self.device))
+
+
+    def forward(self,x):
+        """
+        Forward pass through LSTM layer
+        shape of lstm_out: [input_size, batch_size, hidden_dim]
+        shape of self.hidden: (a, b), where a and b both have shape (num_layers, batch_size, hidden_dim).
+        """
+
+        "aviod error: rnn model chunk of memory"
+        self.lstm.flatten_parameters()
+
+        lstm_out, (h_n,h_c) = self.lstm(x,None)   # hidden state is none, default is zero
+        out = lstm_out.view(len(x),-1)
+        out = F.relu(out)
+        out = self.hidden2out(out)
+        logits = torch.log_softmax(out,dim=1)
+
+        return logits
+
+
 
 
 #----------------------------------------------

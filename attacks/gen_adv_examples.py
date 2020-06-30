@@ -16,8 +16,9 @@ class gen_adv_x:
 
         self.opts = opts
         self.mode = opts['mode']
-        self.model_path = '../model/' + self.mode
-        self.data_path = '../data/' + self.mode
+        self.classifier_type = opts['classifier_type']
+        self.model_path = '../model/' + self.mode + '/' + opts['classifier_type']
+        self.data_path = '../data/' + self.mode + '/' + opts['classifier_type']
         self.pert_box = pert_box
         self.x_box_min = x_box_min
         self.x_box_max = x_box_max
@@ -47,7 +48,11 @@ class gen_adv_x:
         model_cp = copy.deepcopy(model)
         for p in model_cp.parameters():
             p.requires_grad = False
-        model_cp.eval()
+
+        if self.classifier_type == 'cnn':
+            model_cp.eval()
+        elif self.classifier_type == 'lstm':
+            model_cp.train()
 
         adversary.model = model_cp
         _,x_adv = adversary.perturbation(x, y,self.opts['alpha'])
@@ -65,8 +70,13 @@ class gen_adv_x:
             test_data = utils_wf.load_data_main(self.opts['test_data_path'],self.opts['batch_size'])
 
             "load target model structure"
-            params = utils_wf.params(self.opts['num_class'],self.opts['input_size'])
-            target_model = models.target_model_wf(params).to(self.device)
+            if self.classifier_type == 'cnn':
+                params = utils_wf.params_cnn(self.opts['num_class'], self.opts['input_size'])
+                target_model = models.cnn_norm(params).to(self.device)
+
+            elif self.classifier_type == 'lstm':
+                params = utils_wf.params_lstm_eval(self.opts['num_class'], self.opts['input_size'], self.opts['batch_size'])
+                target_model = models.lstm(params).to(self.device)
 
         elif self.mode == 'shs':
             "load data"
@@ -83,14 +93,14 @@ class gen_adv_x:
 
         model_name = self.model_path + '/target_model.pth'
         target_model.load_state_dict(torch.load(model_name, map_location=self.device))
-        target_model.eval()
 
         "set adversary"
         Adversary = self.opts['Adversary']
 
         if self.mode == 'wf':
             fgsm_epsilon = 0.1
-            pgd_a = 0.01
+            pgd_a = 0.051       # if data un-normalized
+            # pgd_a = 0.01    # if data normalized
         else:
             fgsm_epsilon = 0.1
             pgd_a = 0.01
@@ -112,19 +122,21 @@ class gen_adv_x:
         adv_xs = []
         labels = []
         for i,(x,y) in enumerate(test_data):
-            print('generate adversary example of test data {} ...'.format(i))
+            print('{} generate adversary example of test data {} ...'.format(Adversary,i))
 
             x, y = x.to(self.device), y.to(self.device)
 
             if Adversary == 'GAN':
                 pert = pretrained_G(x)
                 "cal adv_x given different mode wf/shs"
-                adv_x = utils_gan.get_advX_gan(x, pert, mode, pert_box=self.opts['pert_box'],
+                adv_x = utils_gan.get_advX_gan(x, pert, self.mode, pert_box=self.opts['pert_box'],
                                                x_box_min=self.opts['x_box_min'],
                                                x_box_max=self.opts['x_box_max'], alpha=self.opts['alpha'])
             elif Adversary in ['FGSM', 'PGD','DeepFool']:
                 _, y_pred = torch.max(target_model(x), 1)
+
                 "cal adv_x given different mode wf/shs. the mode of adversary set before"
+                "use predicted label to prevent label leaking"
                 adv_x = self.x_adv_gen(x, y_pred, target_model, adversary)
 
             else:
@@ -132,15 +144,15 @@ class gen_adv_x:
                 sys.exit()
 
 
-            # x,y = x.to(self.device),y.to(self.device)
-            # adversary.model = target_model
-            # _,adv_x = adversary.perturbation(x,y,self.opts['alpha'])
-
             if self.mode == 'shs':
                 adv_x = (adv_x.data.cpu().numpy().squeeze() * 1500).round()
             elif self.mode == 'wf':
-                normalization = utils_wf.normalizer(x)
-                adv_x = normalization.inverse_Normalizer(adv_x)
+
+                "if the data use L2 normalized, then need to inverse it back"
+                # normalization = utils_wf.normalizer(x)
+                # adv_x = normalization.inverse_Normalizer(adv_x)
+
+                adv_x = adv_x.data.cpu().numpy().squeeze()
                 adv_x = adv_x.squeeze()
             else:
                 print('mode should in ["wf","shs"], system will exit.')
@@ -160,18 +172,15 @@ class gen_adv_x:
         adv_xs = []
         labels = []
         for i,(x,y) in enumerate(train_data):
-            print('generate adversary example of train data {} ...'.format(i))
 
-            # x,y = x.to(self.device),y.to(self.device)
-            # adversary.model = target_model
-            # _,adv_x = adversary.perturbation(x,y,self.opts['alpha'])
+            print('{} generate adversary example of test data {} ...'.format(Adversary,i))
 
             x, y = x.to(self.device), y.to(self.device)
 
             if Adversary == 'GAN':
                 pert = pretrained_G(x)
                 "cal adv_x given different mode wf/shs"
-                adv_x = utils_gan.get_advX_gan(x, pert, mode, pert_box=self.opts['pert_box'],
+                adv_x = utils_gan.get_advX_gan(x, pert, self.mode, pert_box=self.opts['pert_box'],
                                                x_box_min=self.opts['x_box_min'],
                                                x_box_max=self.opts['x_box_max'], alpha=self.opts['alpha'])
             elif Adversary in ['FGSM', 'PGD','DeepFool']:
@@ -187,8 +196,12 @@ class gen_adv_x:
             if self.mode == 'shs':
                 adv_x = (adv_x.data.cpu().numpy().squeeze()*1500).round()
             elif self.mode == 'wf':
-                normalization = utils_wf.normalizer(x)
-                adv_x = normalization.inverse_Normalizer(adv_x)
+
+                "if the data use L2 normalized, then need to inverse it back"
+                # normalization = utils_wf.normalizer(x)
+                # adv_x = normalization.inverse_Normalizer(adv_x)
+
+                adv_x = adv_x.data.cpu().numpy().squeeze()
                 adv_x = adv_x.squeeze()
             else:
                 print('mode should in ["wf","shs"], system will exit.')
@@ -212,12 +225,13 @@ def main(opts):
 
 
 
-def get_opts_wf(mode,Adversary):
+def get_opts_wf(mode,Adversary,classifier_type):
     return {
         'train_data_path': '../data/wf/train_NoDef_burst.csv',
         'test_data_path': '../data/wf/test_NoDef_burst.csv',
         'mode': mode,
-        'alpha':1,
+        'classifier_type':classifier_type,
+        'alpha':10,
         'num_class': 95,
         'input_size': 512,
         'Adversary': Adversary,
@@ -229,11 +243,12 @@ def get_opts_wf(mode,Adversary):
     }
 
 
-def get_opts_shs(mode,Adversary):
+def get_opts_shs(mode,Adversary,classifier_type):
     return {
         'train_data_path': '../data/shs/traffic_train.csv',
         'test_data_path': '../data/shs/traffic_test.csv',
         'mode': mode,
+        'classifier_type': classifier_type,
         'alpha':None,
         'num_class': 101,
         'input_size': 256,
@@ -252,13 +267,14 @@ if __name__ == '__main__':
 
     adveraries = ['FGSM','PGD','GAN','DeepFool']
     mode = 'wf'
+    classifier_type = 'lstm'
 
     for adv in adveraries:
 
         if mode == 'wf':
-            opts = get_opts_wf(mode,adv)
+            opts = get_opts_wf(mode,adv,classifier_type)
         else:
-            opts = get_opts_shs(mode,adv)
+            opts = get_opts_shs(mode,adv,classifier_type)
 
         main(opts)
 

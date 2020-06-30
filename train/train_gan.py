@@ -29,7 +29,7 @@ def main(opts):
 
 
 
-def get_opts_wf(mode):
+def get_opts_wf(mode,classifier_type):
 
     return {
         'epochs': 50,
@@ -37,15 +37,16 @@ def get_opts_wf(mode):
         'pert_box': 0.3,
         'x_box_min': -1,
         'x_box_max': 1,
-        'alpha':1,
+        'alpha':10,
         'num_class': 95,
         'input_size': 512,
         'mode': mode,
+        'classifier_type':classifier_type,
         'train_data_path': '../data/wf/train_NoDef_burst.csv',
     }
 
 
-def get_opts_shs(mode):
+def get_opts_shs(mode,classifier_type):
     "only in SHS, adv_x need to clamp to [-1,0] to maintain incoming traffic"
     return {
         'epochs': 50,
@@ -57,6 +58,7 @@ def get_opts_shs(mode):
         'num_class': 101,
         'input_size': 256,
         'mode': mode,
+        'classifier_type':classifier_type,
         'train_data_path': '../data/shs/traffic_train.csv',
     }
 
@@ -65,11 +67,12 @@ def get_opts_shs(mode):
 if __name__ == '__main__':
 
     mode = 'wf'
+    classifier_type = 'lstm'
 
     if mode == 'wf':
-        opts = get_opts_wf(mode)
+        opts = get_opts_wf(mode,classifier_type)
     elif mode == 'shs':
-        opts = get_opts_shs(mode)
+        opts = get_opts_shs(mode,classifier_type)
     else:
         print("mode shoud in ['wf','shs'], system will exit.")
 

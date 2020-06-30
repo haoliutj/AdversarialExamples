@@ -120,23 +120,27 @@ def traffic_plot(fig_id,x,x_adv):
     plt.show()
 
 
-def single_traffic_plot(fig_id,x,x_adv):
+def single_traffic_plot(fig_id,x,x_adv,Adversary):
 
-
-    plt.plot(x*1500,label='network traffic')
-    plt.plot(x_adv*1500,'--',label='similar network traffic from GAN')
+    plt.figure()
+    plt.title('Network Traffics: ' + Adversary)
+    plt.plot(x,label='network traffic')
+    plt.plot(x_adv,'--',label='Aversarial example')
     plt.legend()
 
-    plt.savefig('./fig/fig_'+str(fig_id)+'.eps')
-    plt.show()
+    plt.savefig('../fig/' + Adversary + '_' + 'traffic_' + str(fig_id)+'.eps')
+    # plt.show()
 
 
-def noise_plot(fig_id,noise):
-    plt.plot(noise * 1500, label='perturbation')
-    plt.ylim(-200,200)
+def noise_plot(fig_id,noise,Adversary):
+
+    plt.figure()
+    plt.title('Perturbation: ' + Adversary)
+    plt.plot(noise, label='perturbation')
+    # plt.ylim(-200,200)
     plt.legend()
-    plt.savefig('./fig/fig_' + str(fig_id) + '.eps')
-    plt.show()
+    plt.savefig('../fig/' + Adversary + '_' + 'pert_' + str(fig_id)+'.eps')
+    # plt.show()
 
 
 def load_data(path):

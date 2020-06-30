@@ -7,7 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 
-def params(num_class,input_size):
+def params_cnn(num_class,input_size):
     "hyperparameters for target model"
 
     print('input_size: {}'.format(input_size))
@@ -45,6 +45,40 @@ def params(num_class,input_size):
         'input_size':input_size
     }
 
+
+
+def params_lstm(num_class,input_size,batch_size):
+    "hyperparameters for target model"
+
+    print('input_size: {}'.format(input_size))
+
+    return {
+        'num_layers':3,
+        'hidden_dim':1024,
+        'dropout': 0.1,
+        'batch_size': batch_size,
+        'batch_first':True,
+        'bidirectional':False,
+        'num_classes': num_class,
+        'input_size':input_size
+    }
+
+
+def params_lstm_eval(num_class,input_size,batch_size):
+    "hyperparameters for target model"
+
+    print('input_size: {}'.format(input_size))
+
+    return {
+        'num_layers':3,
+        'hidden_dim':1024,
+        'dropout': 0,
+        'batch_size': batch_size,
+        'batch_first':True,
+        'bidirectional':False,
+        'num_classes': num_class,
+        'input_size':input_size
+    }
 
 
 
@@ -363,8 +397,8 @@ def load_data_main(path,batch_size):
     x,y = load_csv_data(path)
 
     "normalize data"
-    normalization = normalizer(x,'l2')
-    x,_ = normalization.Normalizer()
+    # normalization = normalizer(x,'l2')
+    # x,_ = normalization.Normalizer()
 
 
     data_loader = Data_loader(x,y,batch_size)
@@ -492,9 +526,8 @@ def get_advX_wf_main(x,pert,pert_box,alpha=None):
     "add pert to x given the restrictions"
     adv_x = add_perturbation(x, pert)
 
-    "no need for normalized data"
-    # "add round function to inversed data"
-    # adv_x = round_data(adv_x)
+    "only needed for un-normalized data. add round function to inversed data"
+    adv_x = round_data(adv_x)
 
     "convert ndarray to torch.Tensor"
     adv_x = torch.Tensor(adv_x)

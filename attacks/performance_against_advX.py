@@ -10,7 +10,7 @@ import torch
 from attacks.white_box.adv_box.attacks import FGSM,DeepFool,LinfPGDAttack
 from train import utils_wf,utils_gan,utils_shs
 from train import models
-import sys
+import sys,copy
 
 
 """
@@ -22,21 +22,38 @@ class against_adv_x:
         self.opts = opts
         self.mode = opts['mode']
         self.target_model_type = opts['target_model_type']
-        self.model_path = '../model/' + self.mode
+        self.classifier_type = opts['classifier_type']
+        self.model_path = '../model/' + self.mode + '/' + opts['classifier_type']
         self.pert_box = pert_box
         self.x_box_min = x_box_min
         self.x_box_max = x_box_max
         self.input_nc ,self.gen_input_nc = 1,1
+
         self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        # self.device = torch.device('cpu')
         print("CUDA Available: ", torch.cuda.is_available())
 
         if self.mode == 'wf':
-            print('Website Fingerprinting...')
+            print('Website Fingerprinting...with {}'.format(self.classifier_type))
         elif self.mode == 'shs':
-            print('Smart Home Speaker Fingerprinting...')
+            print('Smart Home Speaker Fingerprinting...with {}'.format(self.classifier_type))
 
-        if not os.path.exists(self.model_path):
-            os.makedirs(self.model_path)
+        # if not os.path.exists(self.model_path):
+        #     os.makedirs(self.model_path)
+        print('testing model path:  ',self.model_path)
+
+
+    def model_reset(self,model):
+        """
+        given lstm model can't be backward in eval mode,
+        so set dropout=0 and parameters require_grad=False in train mode, which is equal to eval mode
+        """
+        model_cp = copy.deepcopy(model)
+        for p in model_cp.parameters():
+            p.requires_grad = False
+
+        return model_cp
+
 
     #------------------------------------------
     "performance of model"
@@ -49,8 +66,14 @@ class against_adv_x:
             test_data = utils_wf.load_data_main(self.opts['test_data_path'],self.opts['batch_size'])
 
             "load target model structure"
-            params = utils_wf.params(self.opts['num_class'],self.opts['input_size'])
-            target_model = models.target_model_wf(params).to(self.device)
+            if self.classifier_type == 'cnn':
+                params = utils_wf.params_cnn(self.opts['num_class'], self.opts['input_size'])
+                target_model = models.cnn_norm(params).to(self.device)
+
+            elif self.classifier_type == 'lstm':
+                params = utils_wf.params_lstm_eval(self.opts['num_class'], self.opts['input_size'], self.opts['batch_size'])
+                target_model = models.lstm(params).to(self.device)
+
 
         elif self.mode == 'shs':
             "load data"
@@ -58,7 +81,7 @@ class against_adv_x:
 
             "load target model structure"
             params = utils_shs.params(self.opts['num_class'],self.opts['input_size'])
-            target_model = models.target_model_shs(params).to(self.device)
+            target_model = models.cnn_noNorm(params).to(self.device)
 
         else:
             print('mode not in ["wf","shs"], system will exit.')
@@ -73,17 +96,27 @@ class against_adv_x:
             sys.exit()
 
         target_model.load_state_dict(torch.load(model_name, map_location=self.device))
-        target_model.eval()
+
+        "set equal_eval mode of train instead eval for lstm"
+        if self.classifier_type == 'lstm':
+            target_model = self.model_reset(target_model)
+            target_model.train()
+        elif self.classifier_type == 'cnn':
+            target_model.eval()
+
+        target_model.to(self.device)
 
 
         "set adversary"
         Adversary = self.opts['Adversary']
+
         if self.mode == 'wf':
             fgsm_epsilon = 0.1
-            pgd_a = 0.01
-        else:
+            pgd_a = 0.051
+        elif self.mode == 'shs':
             fgsm_epsilon = 0.1
             pgd_a = 0.01
+
         if Adversary == 'GAN':
             pretrained_generator_path = self.model_path + '/adv_generator.pth'
             pretrained_G = models.Generator(self.gen_input_nc, self.input_nc).to(self.device)
@@ -106,13 +139,16 @@ class against_adv_x:
             test_x, test_y = test_x.to(self.device), test_y.to(self.device)
 
             "prediction on original input x"
-            pred_x = target_model(test_x)
-            _,pred_x = torch.max(pred_x, 1)
+            pred_y = target_model(test_x)
+            _,pred_y = torch.max(pred_y, 1)
 
             "prediction on adversarial x"
             if Adversary in ['FGSM', 'DeepFool', 'PGD']:
                 adversary.model = target_model
-                adv_y,adv_x = adversary.perturbation(test_x,test_y,self.opts['alpha'])
+
+                "use predicted label to prevent label leaking"
+                adv_y,adv_x = adversary.perturbation(test_x,pred_y,self.opts['alpha'])
+                # adv_y,adv_x = adversary.perturbation(test_x,test_y,self.opts['alpha'])
 
             elif Adversary == 'GAN':
                 pert = pretrained_G(test_x)
@@ -120,7 +156,7 @@ class against_adv_x:
                 adv_y = torch.argmax(target_model(adv_x.to(self.device)),1)
 
             num_correct += torch.sum(adv_y == test_y, 0)
-            correct_x += (pred_x == test_y).sum()
+            correct_x += (pred_y == test_y).sum()
             total_case += len(test_y)
 
         acc = float(num_correct.item()) / float(total_case)
@@ -141,15 +177,16 @@ def main(opts):
     against_adv.test_model()
 
 
-def get_opts_wf(Adversary,model_type):
+def get_opts_wf(Adversary,model_type,classifier_type):
     "parameters of website fingerprinting"
     return {
         'test_data_path': '../data/wf/test_NoDef_burst.csv',
         'target_model_type': model_type,
+        'classifier_type':classifier_type,
         'mode': 'wf',
         'num_class': 95,
         'input_size': 512,
-        'alpha': 1,
+        'alpha': 10,
         'Adversary': Adversary,
         'batch_size': 64,
         'pert_box':0.3,
@@ -159,11 +196,12 @@ def get_opts_wf(Adversary,model_type):
     }
 
 
-def get_opts_shs(Adversary,model_type):
+def get_opts_shs(Adversary,model_type,classifier_type):
     "parameters of smart home speaker fingerprinting"
     return {
         'test_data_path': '../data/shs/traffic_test.csv',
         'target_model_type': model_type,
+        'classifier_type': classifier_type,
         'mode': 'shs',
         'num_class': 101,
         'input_size': 256,
@@ -179,16 +217,17 @@ def get_opts_shs(Adversary,model_type):
 
 if __name__ == '__main__':
 
-    Adversary = ['GAN','PGD','FGSM',]
+    Adversary = ['GAN','PGD','DeepFool','FGSM',]
 
-    mode = 'wf'
+    mode = 'wf'                     # ['wf','shs']
     model_type = 'target_model'     # "model type includes: ['target_model','adv_target_model']"
+    classifier_type = 'lstm'        # ['lstm','cnn']
 
     for adv in Adversary:
         if mode == 'wf':
-            opts = get_opts_wf(adv,model_type)
+            opts = get_opts_wf(adv,model_type,classifier_type)
         elif mode == 'shs':
-            opts = get_opts_shs(adv,model_type)
+            opts = get_opts_shs(adv,model_type,classifier_type)
 
         "set batch_szie, deepfool only work at batch_size=1"
         if adv == 'DeepFool':
